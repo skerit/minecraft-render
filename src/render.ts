@@ -5,7 +5,7 @@ import type { Minecraft } from './minecraft';
 import { distance, invert, mul, size } from './utils/vector-math';
 import { Logger } from './utils/logger';
 //@ts-ignore
-import { createCanvas, loadImage } from 'node-canvas-webgl';
+import { createCanvas, loadImage } from '@11ways/canvas-webgl';
 import { makeAnimatedPNG } from './utils/apng';
 
 const MATERIAL_FACE_ORDER = ['east', 'west', 'up', 'down', 'south', 'north'] as const;
