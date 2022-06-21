@@ -29,21 +29,21 @@
   "license": "MIT",
   "dependencies": {
     "assign-deep": "~1.0.1",
-    "canvas": "~2.8.0",
-    "commander": "~9.1.0",
-    "crc": "~3.8.0",
+    "canvas": "~2.9.1",
+    "commander": "~9.3.0",
+    "crc": "~4.1.1",
     "@11ways/canvas-webgl": "~0.3.0",
-    "node-stream-zip": "~1.13.6",
-    "three": "~0.138.3"
+    "node-stream-zip": "~1.15.0",
+    "three": "~0.141.0"
   },
   "devDependencies": {
-    "@types/crc": "~3.4.0",
-    "@types/node-fetch": "~2.5.12",
-    "@types/three": "~0.138.0",
+    "@types/crc": "~3.8.0",
+    "@types/node-fetch": "~3.0.3",
+    "@types/three": "~0.141.0",
     "mkdirp": "~1.0.4",
-    "node-fetch": "~2.6.1",
-    "nole": "~1.0.12",
-    "typescript": "~4.3.5",
-    "@types/node": "~17.0.21"
+    "node-fetch": "~3.2.2",
+    "nole": "~2.0.0",
+    "typescript": "~4.7.4",
+    "@types/node": "~18.0.0"
   }
 }

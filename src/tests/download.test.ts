@@ -12,7 +12,7 @@ export class DownloadTest {
   async getManifest() {
     this.checkExistingJar();
     const response = await fetch(`https://launchermeta.mojang.com/mc/game/version_manifest.json`)
-    const manifest: VersionManifest = await response.json();
+    const manifest: VersionManifest = <VersionManifest> await response.json();
     this.targetVersionUrl = manifest.versions.find(version => version.type == 'release' || version.id == manifest.latest.release)!.url;
   }
 
@@ -20,7 +20,7 @@ export class DownloadTest {
   async getVersionJarUrl() {
     this.checkExistingJar();
     const response = await fetch(this.targetVersionUrl)
-    const version: Version = await response.json();
+    const version: Version = <Version> await response.json();
     this.jarUrl = version.downloads.client.url;
   }
 
@@ -29,11 +29,20 @@ export class DownloadTest {
     this.checkExistingJar();
     const response = await fetch(this.jarUrl);
 
+    if (response == null) {
+      return;
+    }
+
     this.jarPath = this.getPath();
 
     const stream = fs.createWriteStream(this.jarPath);
 
     await new Promise((resolve, reject) => {
+
+      if (response.body == null) {
+        return reject(new Error('The response body is null'));
+      }
+
       response.body.pipe(stream)
       response.body.on('error', reject);
       stream.on('close', resolve);
