@@ -1,5 +1,5 @@
 {
-  "name": "minecraft-render",
+  "name": "@blackblockrocks/minecraft-render",
   "version": "1.2.0",
   "description": "Minecraft gui block/item renderer",
   "main": "dist/index.js",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/co3moz/minecraft-render.git"
+    "url": "git+https://github.com/skerit/minecraft-render.git"
   },
   "bugs": {
-    "url": "https://github.com/co3moz/minecraft-render/issues"
+    "url": "https://github.com/skerit/minecraft-render/issues"
   },
-  "homepage": "https://github.com/co3moz/minecraft-render#readme",
+  "homepage": "https://github.com/skerit/minecraft-render#readme",
   "keywords": [
     "minecraft",
     "render",
