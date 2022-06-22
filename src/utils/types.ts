@@ -22,6 +22,19 @@ export interface Rotation {
 export type BlockFaces = 'north' | 'south' | 'east' | 'west' | 'up' | 'down';
 export type BlockSides = 'all' | 'top' | 'bottom' | 'side' | 'front' | 'particle' | 'pane' | 'wood' | 'back' | BlockFaces;
 
+export interface BlockState {
+  identifier ?: string
+  variants : {
+    [key: string]: BlockStateVariant
+  }
+}
+
+export interface BlockStateVariant {
+  model  : string
+  x     ?: number
+  y     ?: number
+}
+
 export interface BlockModel {
   blockName?: string
   parents?: string[]
@@ -66,7 +79,7 @@ export interface Face {
 export interface Renderer {
   scene: THREE.Scene
   renderer: THREE.WebGLRenderer
-  canvas: rawCanvas.Canvas
+  canvas: any
   camera: THREE.OrthographicCamera
   textureCache: { [key: string]: any }
   animatedCache: { [key: string]: AnimationMeta | null }
