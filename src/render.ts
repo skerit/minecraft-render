@@ -8,6 +8,8 @@ import { Logger } from './utils/logger';
 import { createCanvas, loadImage } from '@11ways/canvas-webgl';
 import { makeAnimatedPNG } from './utils/apng';
 
+require('jsdom-global')();
+
 const MATERIAL_FACE_ORDER = ['east', 'west', 'up', 'down', 'south', 'north'] as const;
 
 export async function prepareRenderer({ width = 1000, height = 1000, distance = 20, plane = 0, animation = true }: RendererOptions): Promise<Renderer> {
@@ -22,6 +24,7 @@ export async function prepareRenderer({ width = 1000, height = 1000, distance = 
     antialias: true,
     alpha: true,
     logarithmicDepthBuffer: true,
+    powerPreference: "high-performance",
   });
 
   Logger.trace(() => `WebGL initialized`);
