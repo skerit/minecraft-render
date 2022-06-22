@@ -327,6 +327,11 @@ export class Minecraft {
 	async getModel(blockName: string): Promise<BlockModel> {
 		let { parent, ...model } = await this.getModelFile(blockName)
 
+		// If no gui data was found, always fallback to regular block settings
+		if (!parent && (!model.display || !model.display.gui)) {
+			parent = 'minecraft:block/block';
+		}
+
 		if (parent) {
 			model = deepAssign({}, await this.getModel(parent), model)
 
@@ -367,6 +372,11 @@ export class Minecraft {
 
 		let parent = model_file.parent;
 		model_file.parent = undefined;
+
+		// If no gui data was found, always fallback to regular block settings
+		if (!parent && (!model_file.display || !model_file.display.gui)) {
+			parent = 'minecraft:block/block';
+		}
 
 		if (parent) {
 			model_file = deepAssign({}, await this.getModel(parent), model_file)
