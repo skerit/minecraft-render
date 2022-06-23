@@ -1,6 +1,6 @@
 {
   "name": "@blackblockrocks/minecraft-render",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Minecraft gui block/item renderer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,8 @@
     "@11ways/canvas-webgl": "~0.3.0",
     "node-stream-zip": "~1.15.0",
     "three": "~0.141.0",
-    "jsdom-global": "~3.0.2"
+    "jsdom-global": "~3.0.2",
+    "jsdom": "~20.0.0"
   },
   "devDependencies": {
     "@types/crc": "~3.8.0",
