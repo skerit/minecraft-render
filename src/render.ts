@@ -185,6 +185,10 @@ async function constructTextureMaterial(minecraft: Minecraft, block: BlockModel,
   const animatedCache = minecraft.getRenderer().animatedCache;
   const image = cache[path] ? cache[path] : (cache[path] = await loadImage(await minecraft.getTextureFile(path)));
 
+  if (!image) {
+    throw new Error('Failed to load texture image: ' + path);
+  }
+
   const animationMeta = animatedCache[path] ? animatedCache[path] : (animatedCache[path] = await minecraft.getTextureMetadata(path));
 
   const width = image.width;
