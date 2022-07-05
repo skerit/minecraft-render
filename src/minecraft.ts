@@ -361,6 +361,10 @@ export class Minecraft {
 			}
 		}
 
+		if (Array.isArray(default_variant)) {
+			default_variant = default_variant[0];
+		}
+
 		let blockName = default_variant.model;
 
 		let model_file = await this.getModelFile(blockName);
