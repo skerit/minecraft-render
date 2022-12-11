@@ -352,17 +352,30 @@ export class Minecraft {
 	 */
 	 async getModelFromBlockState(block_state: BlockState): Promise<BlockModel | undefined> {
 
-		let default_variant : BlockStateVariant = block_state.variants[''];
+		let default_variant : BlockStateVariant;
 
-		if (!default_variant) {
-			for (let key in block_state.variants) {
-				default_variant = block_state.variants[key];
-				break;
+		if (block_state.variants) {
+			default_variant = block_state.variants[''];
+
+			if (!default_variant) {
+				for (let key in block_state.variants) {
+					default_variant = block_state.variants[key];
+					break;
+				}
 			}
+		} else if (block_state.multipart) {
+			let entry = block_state.multipart[0];
+			default_variant = entry.apply;
+		} else {
+			return;
 		}
 
 		if (Array.isArray(default_variant)) {
 			default_variant = default_variant[0];
+		}
+
+		if (!default_variant) {
+			return;
 		}
 
 		let blockName = default_variant.model;

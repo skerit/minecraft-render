@@ -27,6 +27,12 @@ export interface BlockState {
   variants : {
     [key: string]: BlockStateVariant
   }
+  multipart : [
+    {
+      "when": any
+      "apply": BlockStateVariant
+    }
+  ]
 }
 
 export interface BlockStateVariant {
