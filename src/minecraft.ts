@@ -325,7 +325,13 @@ export class Minecraft {
 	 * Get the model of a block. Add all the parent info too.
 	 */
 	async getModel(blockName: string): Promise<BlockModel> {
-		let { parent, ...model } = await this.getModelFile(blockName)
+		let file = await this.getModelFile(blockName);
+
+		if (!file) {
+			throw new Error('Could not find model file for ' + blockName);
+		}
+
+		let { parent, ...model } = file;
 
 		// If no gui data was found, always fallback to regular block settings
 		if (!parent && (!model.display || !model.display.gui)) {
@@ -419,6 +425,8 @@ export class Minecraft {
 		}
 
 		const path = `assets/${namespace}/models/${id}.json`
+
+		console.log('Getting model file for', name, 'at path', path);
 
 		try {
 			return this.getParsedJson(path);
