@@ -34,14 +34,14 @@
     "crc": "~4.1.1",
     "@11ways/canvas-webgl": "~0.3.1",
     "node-stream-zip": "~1.15.0",
-    "three": "~0.166.1",
+    "three": "~0.158.0",
     "jsdom-global": "~3.0.2",
     "jsdom": "~20.0.0"
   },
   "devDependencies": {
     "@types/crc": "~3.8.0",
     "@types/node-fetch": "~3.0.3",
-    "@types/three": "~0.166.0",
+    "@types/three": "~0.158.0",
     "mkdirp": "~1.0.4",
     "node-fetch": "~3.2.2",
     "nole": "~2.0.0",
